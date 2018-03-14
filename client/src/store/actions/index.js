@@ -2,6 +2,5 @@ export {
 	createStudent,
 	deleteStudent,
 	updateStudent,
-	fetchStudents,
-	updateMessage
+	fetchStudents
 } from './studentActions'
