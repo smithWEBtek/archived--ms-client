@@ -1,5 +1,6 @@
 // const API_URL = process.env.REACT_APP_API_URL || "https://music-studio.herokuapp.com/api"
-const API_URL = 'https://music-studio.herokuapp.com/api'
+// const API_URL = 'https://music-studio.herokuapp.com/api'
+const API_URL = 'http://localhost:3002/api'
 
 const StudentService = {
 	createStudent(student) {

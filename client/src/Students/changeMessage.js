@@ -1,18 +1,44 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const changeMessage = (props) => {
+class ChangeMessage extends Component {
+	state = {
+		message: 'enter new message'
+	}
 
-	return (
-		<div>
-			<form>
+	handleChange = (e) => {
+		// console.log(e.target.value);
+		const { name, value } = e.target;
+		this.setState({ [name]: value });
+		e.preventDefault()
+	}
+
+	handleSubmit(event) {
+		let msg = this.state.message
+		console.log('[handleSubmit msg: ]', msg);
+
+		this.props.updateMessage(msg)
+		event.preventDefault()
+	}
+
+	render() {
+		const changeMessageForm = (
+			<form onSubmit={(data) => this.handleSubmit(data)}>
 				<input
-					value={props.message}
-					onSubmit={props.updateMessage}
+					type="text"
+					name="message"
+					value={this.state.message}
+					onChange={(event) => this.handleChange(event)}
 				/><br />
-				<button type='button'>ChangeMessage</button>
+				<button>ChangeTheMessage</button>
 			</form>
-		</div>
-	)
+		)
+
+		return (
+			<div>
+				{changeMessageForm}
+			</div>
+		)
+	}
 }
 
-export default changeMessage
+export default ChangeMessage

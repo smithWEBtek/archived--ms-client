@@ -89,8 +89,8 @@ class Students extends Component {
 	//******** MESSAGE handling****************
 	onUpdateMessage = (data) => {
 		// pass data to action to update Redux store
-
-
+		console.log(['data in onUpdateMessage'], data);
+		this.props.onUpdateMessage(data)
 	}
 
 	render() {
@@ -100,7 +100,10 @@ class Students extends Component {
 		return (
 			<Container>
 				<div>
-					<ChangeMessage updateMessage={(data) => this.onUpdateMessage(data)} />
+					<ChangeMessage
+						updateMessage={(data) => this.onUpdateMessage(data)}
+						message={this.props.message2}
+					/>
 					<h4>Redux message: {this.props.message2}</h4>
 				</div>
 				<hr />
