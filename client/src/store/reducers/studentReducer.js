@@ -5,6 +5,7 @@ const initialState = {
 	loading: false,
 	error: false,
 	message: '',
+	message2: 'hello from Redux student store',
 	teachers: [
 		{ id: 1, firstname: 'None', lastname: 'None', email: 'none@music.com' },
 		{ id: 2, firstname: 'John', lastname: 'Coltrane', email: 'trane@music.com' },

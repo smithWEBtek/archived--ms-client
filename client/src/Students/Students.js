@@ -11,6 +11,8 @@ import CreateStudent from './CreateStudent/CreateStudent'
 import EditStudent from './EditStudent/EditStudent'
 import StudentsList from './StudentsList/StudentsList'
 
+import ChangeMessage from './changeMessage'
+
 class Students extends Component {
 	state = {
 		student: null,
@@ -84,11 +86,23 @@ class Students extends Component {
 		this.props.onUpdateStudent(data, history)
 	}
 
+	//******** MESSAGE handling****************
+	onUpdateMessage = (data) => {
+		// pass data to action to update Redux store
+
+
+	}
+
 	render() {
+
 		const { match, students } = this.props
 
 		return (
 			<Container>
+				<div>
+					<ChangeMessage updateMessage={(data) => this.onUpdateMessage(data)} />
+					<h4>Redux message: {this.props.message2}</h4>
+				</div>
 				<hr />
 				{/*********CREATE STUDENT MODAL********************/}
 				<button onClick={this.createStudentForm}>Add Student</button>
@@ -146,8 +160,8 @@ class Students extends Component {
 
 const mapStateToProps = state => {
 	return {
-		students: state.stu.students
-		// teachers: state.tch.teachers
+		students: state.stu.students,
+		message2: state.stu.message2
 	}
 }
 
