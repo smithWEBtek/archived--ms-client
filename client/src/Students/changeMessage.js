@@ -6,7 +6,6 @@ class ChangeMessage extends Component {
 	}
 
 	handleChange = (e) => {
-		// console.log(e.target.value);
 		const { name, value } = e.target;
 		this.setState({ [name]: value });
 		e.preventDefault()
@@ -14,15 +13,13 @@ class ChangeMessage extends Component {
 
 	handleSubmit(event) {
 		let msg = this.state.message
-		console.log('[handleSubmit msg: ]', msg);
-
 		this.props.updateMessage(msg)
 		event.preventDefault()
 	}
 
 	render() {
 		const changeMessageForm = (
-			<form onSubmit={(data) => this.handleSubmit(data)}>
+			<form onSubmit={(event) => this.handleSubmit(event)}>
 				<input
 					type="text"
 					name="message"

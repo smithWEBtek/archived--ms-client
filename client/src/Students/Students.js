@@ -89,7 +89,6 @@ class Students extends Component {
 	//******** MESSAGE handling****************
 	onUpdateMessage = (data) => {
 		// pass data to action to update Redux store
-		console.log(['data in onUpdateMessage'], data);
 		this.props.onUpdateMessage(data)
 	}
 
@@ -173,7 +172,8 @@ const mapDispatchToProps = dispatch => {
 		onFetchStudents: () => dispatch(actions.fetchStudents()),
 		onCreateStudent: (data, history) => dispatch(actions.createStudent(data, history)),
 		onUpdateStudent: (data, history) => dispatch(actions.updateStudent(data, history)),
-		onDeleteStudent: (id, history) => dispatch(actions.deleteStudent(id, history))
+		onDeleteStudent: (id, history) => dispatch(actions.deleteStudent(id, history)),
+		onUpdateMessage: (message) => dispatch(actions.updateMessage(message))
 	}
 }
 

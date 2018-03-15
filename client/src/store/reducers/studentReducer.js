@@ -22,6 +22,12 @@ const reducer = (state = initialState, action) => {
 	switch (action.type) {
 
 		//-----CREATE STUDENT-----------------------------
+		case actionTypes.UPDATE_MESSAGE:
+			return Object.assign({}, state, {
+				message2: action.payload
+			})
+
+		//-----CREATE STUDENT-----------------------------
 		case actionTypes.CREATE_STUDENT_START:
 			return Object.assign({}, state, { loading: true })
 
