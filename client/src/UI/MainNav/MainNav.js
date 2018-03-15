@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
 import { Route, Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import * as actions from '../../store/actions/index'
+
 import './MainNav.css'
 import LogoSpin from '../../assets/images/LogoSpin.png'
 import Logo from '../../assets/images/Logo.png'
 import { Container, Collapse, Navbar, NavbarToggler, Nav } from 'reactstrap'
+import Logs from '../../Logs/Logs'
 
 class MainNav extends Component {
 	constructor(props) {
@@ -14,6 +18,11 @@ class MainNav extends Component {
 			isOpen: false
 		}
 	}
+
+	componentDidMount() {
+		this.props.onFetchLogs()
+	}
+
 
 	toggle() {
 		this.setState({
@@ -53,6 +62,11 @@ class MainNav extends Component {
 								<img src={Logo} height="150px" className="Logo" alt=" app-logo" /> <br />
 								<h3>II III II III II III II III II III II III II</h3>
 							</div>
+							<div>
+								<h3>logs should be here</h3>
+								<Logs logs={this.props.logs} />
+							</div>
+
 							<div><hr /> <hr /> <hr /> <hr /> <hr /></div>
 							<div>
 								<h4>This app allows Teachers and Students to: </h4>
@@ -91,4 +105,15 @@ class MainNav extends Component {
 	}
 }
 
-export default MainNav
+const mapStateToProps = state => {
+	return {
+		logs: state.lgs.logs
+	}
+}
+
+const mapDispatchToProps = dispatch => {
+	return {
+		onFetchLogs: () => dispatch(actions.fetchLogs())
+	}
+}
+export default connect(mapStateToProps, mapDispatchToProps)(MainNav)

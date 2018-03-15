@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 import studentReducer from './store/reducers/studentReducer'
+import logReducer from './store/reducers/logReducer'
 // import teacherReducer from './store/reducers/teacherReducer'
 // import resourceReducer from './store/reducers/resourceReducer'
 // import lessonReducer from './store/reducers/lessonReducer'
@@ -13,7 +14,8 @@ import App from './App'
 import classes from './index.css'
 
 const rootReducer = combineReducers({
-	stu: studentReducer
+	stu: studentReducer,
+	lgs: logReducer
 	// tch: teacherReducer,
 	// les: lessonReducer,
 	// res: resourceReducer,
