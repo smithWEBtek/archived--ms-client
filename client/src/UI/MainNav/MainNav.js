@@ -23,7 +23,6 @@ class MainNav extends Component {
 		this.props.onFetchLogs()
 	}
 
-
 	toggle() {
 		this.setState({
 			isOpen: !this.state.isOpen
